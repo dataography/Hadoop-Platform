@@ -5,7 +5,7 @@
 ###################################################################
 ######  DATA TYPES AND CONTENTS:  
 
-join_gennum*.txt contains following data: The list of <shows, views>
+join_gennum*.txt contains following data: The list of shows and  views.
 
     Almost_News, 25
     Hourly_Show,30
@@ -16,7 +16,7 @@ join_gennum*.txt contains following data: The list of <shows, views>
     Dumb_Games,60
     …
 
-join_genchan*.txt contains following data: The list of <shows, channel> 
+join_genchan*.txt contains following data: The list of shows and  channels 
 
     Almost_News, ABC
     Hourly_Show, COM
@@ -25,7 +25,7 @@ join_genchan*.txt contains following data: The list of <shows, channel>
     Baked_News, FNT
     Dumb_Games, ABC
     …
- If you are using Cloudera VM, you can download the file  by runnin the following commands in terminal:
+ If you are using Cloudera VM, you can download the file  by running the following commands in terminal:
  
     python make_join2data.py y 1000 13 > join2_gennumA.txt
     python make_join2data.py y 2000 17 > join2_gennumB.txt
@@ -36,7 +36,7 @@ join_genchan*.txt contains following data: The list of <shows, channel>
  
  
 
-1- Type following commands in terminal and copy-past or directly download the join_mapper.py  and join_reducer.py 
+1- Type the following commands in terminal and copy-past or directly download the join_mapper.py  and join_reducer.py 
 
     > gedit join_mapper.py
 
@@ -75,15 +75,15 @@ join_genchan*.txt contains following data: The list of <shows, channel>
     > hdfs dfs -put /your_working_directory/join2_genchanB.txt /user/your_working_directory_to_hdfs_file_system/input
     > hdfs dfs -put /your_working_directory/join2_genchanC.txt /user/your_working_directory_to_hdfs_file_system/input
 
-7- You can check your files on HDFS by following command: You should see 6 files.
+7- You can check your files on HDFS by the following command: You should see 6 files.
 
     > hdfs dfs -ls /user/your_working_directory_to_hdfs_file_system/input
 
-8- Run the Hadoop WordCount:
+8- Run the Hadoop for join task:
 
     > hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input /user/your_working_directory_to_hdfs_file_system/input -output /user/your_working_directory_to_hdfs_file_system/output_new -mapper /your_working_directory/join_mapper.py -reducer /your_working_directory/join_reducer.py
 
-9- You can see the output directory by first command and check out the contents by second command:
+9- You can see the output directory by the first command and check out the contents by the second command:
 
     > hdfs dfs -ls /user/your_working_directory_to_hdfs_file_system/output_new
 
