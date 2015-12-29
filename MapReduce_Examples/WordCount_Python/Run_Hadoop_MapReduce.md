@@ -1,17 +1,17 @@
 
-1- Type following commands in terminal and copy-past or directly download the wordcount_mapper.py, and wordcount_reducer.py
+1- Type following commands in terminal and copy-past or directly download the wordcount_mapper.py  and wordcount_reducer.py 
 
     > gedit wordcount_mapper.py
 
     > gedit wordcount_reducer.py
 
-2-Enter the following to make it executable
+2-Enter the following to make it executable:
 
     > chmod +x wordcount_mapper.py
 
     > chmod +x wordcount_reducer.py
 
-3- Enter the following to see what directory you are in so that file your data and functions accordingly
+3- Enter the following to see what directory you are in so that file your data and functions accordingly:
 
     > pwd
 
@@ -31,11 +31,11 @@
 
     > hdfs dfs -put /your_working_directory/testfile2 /user/your_working_directory_to_hdfs_file_system/input
 
-7- You can check your files on HDFS by following command
+7- You can check your files on HDFS by following command:
 
-    > hdfs dfs -ls /user/cloudera/input
+    > hdfs dfs -ls /user/your_working_directory_to_hdfs_file_system/input
 
-8- Run the Hadoop WordCount.
+8- Run the Hadoop WordCount:
 
     > hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input /user/your_working_directory_to_hdfs_file_system/input -output /user/your_working_directory_to_hdfs_file_system/output_new -mapper /your_working_directory/wordcount_mapper.py -reducer /your_working_directory/wordcount_reducer.py
 
@@ -49,4 +49,4 @@
 
     > hdfs dfs -getmerge /user/your_working_directory_to_hdfs_file_system/output_new_0/* wordcount_num0_output.txt
 
-11- For other configuration you can set number of reduce task to be n by adding this line to your run hadoop command "-numReduceTask n" 
+11- For other configuration you can set number of reduce task to be n by adding "-numReduceTask n" line to your run hadoop command (8th step). 
