@@ -1,6 +1,7 @@
 # Coursera-Assignments
 
-This repository contains my various Coursera Class assignments together with some variations and self-workout examples. You can find similar or the same example and assignments at following coursera classes. Primaliry resources are
+This repository contains my various Coursera Class assignments together with some variations and self-workout examples. 
+You can find similar or the same example and assignments at following coursera classes. Primaliry resources are
 
  
    -Hadoop Platform and Application Framework (Coursera)
