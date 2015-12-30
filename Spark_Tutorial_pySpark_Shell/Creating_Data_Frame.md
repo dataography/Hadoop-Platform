@@ -2,7 +2,7 @@
 #In this file, we will learn how to create a data frame step by step, and perform some basic transformations on it.
 
 
-Lets a create a table of Movies.
+Let's create a table of Movies.
 
     in[]: Movies = sc.parallelize([
       ["Naked", 1994, "Mike Leigh", "Comedy, Drama",7.9, 0],
@@ -12,7 +12,7 @@ Lets a create a table of Movies.
       ["One Flew Over the Cuckoo's Nest", 1975,"Milos Forman", "Comedy, Drama", 8.7, 5],
       ["Modern Times", 1936,"Charles Chaplin","Comedy, Drama", 8.6, 0]])
 
-Lets find the mean of 6th column which contains the imbd scores.
+Let's find the mean of 6th column which contains the imbd scores.
 
     in[]: def extract_imdb_score(row):
              return row[4]
