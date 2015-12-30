@@ -1,8 +1,8 @@
 
-#In this File, we will learn how to create data frame step by step. 
+#In this File, we will learn how to create data frame step by step, and perform some basic transformation
 
 
-#Lets a create a data frame of Directors
+Lets a create a data frame of Directors
 
     > Movies = sc.parallelize([
       ["Naked", 1994, "Mike Leigh", "Comedy, Drama",7.9, 0],
@@ -12,7 +12,7 @@
       ["One Flew Over the Cuckoo's Nest", 1975,"Milos Forman", "Comedy, Drama", 8.7, 5],
       ["Modern Times", 1936,"Charles Chaplin","Comedy, Drama", 8.6, 0]])
 
-# Lets derive mean of a 6 th column which is imbd score.
+Lets derive mean of a 6 th column which is imbd score.
 
     > def extract_imdb_score(row):
              return row[4]
@@ -21,7 +21,7 @@
     
     output: 8.5
         
-# Similarly you can derive # GROUP OF A COLUMN #  
+Similarly you can derive # GROUP OF A COLUMN #  
     
     > def extract_genre_and_director(row):
           return (row[3],row[2])
@@ -36,12 +36,12 @@
      ('Comedy, Drama', 'Milos Forman'),
      ('Comedy, Drama', 'Charles Chaplin')]
      
-# we could also name this table by calling transformation as follow, and then call by collect() method
+we could also name this table by calling transformation as follow, and then call by collect() method
 
     > genre_and_director_RDD = Movies.map(extract_genre_and_director)
     > genre_and_director_RDD.collect()
     
-# We can GRUOP BY A COLUMN as follow. For simplicity, lets create new table of genre and imdb score.
+We can GRUOP BY A COLUMN as follow. For simplicity, lets create new table of genre and imdb score.
 
     > def extract_genre_and_score(row):
           return (row[3], row[4])
@@ -57,7 +57,7 @@
      ('Comedy, Drama', 8.6999999999999993),
      ('Comedy, Drama', 8.5999999999999996)]
      
-# Next lets find the max score for each genre. In spark language: max and reduceByKey() methods are in action
+Next lets find the max score for each genre. In spark language: max and reduceByKey() methods are in action
 
     > genre_score_RDD.reduceByKey(max).collect()
     
@@ -66,11 +66,11 @@
      ('Sci-Fi, Drama', 8.1999999999999993),
      ('Crime, Drama', 8.9000000000000004)]
      
-# Similarly we can take min of the score for each genre by min and reduceByKey() methods
+Similarly we can take min of the score for each genre by min and reduceByKey() methods
    
     >genre_score_RDD.reduceByKey(min).collect()
     
-# Now lets give a name for each column of our Movies table using sqlCtx.createDataFrame(..) and see our frame by show()
+Now lets give a name for each column of our Movies table using sqlCtx.createDataFrame(..) and see our frame by show()
 
     > Movies_df = sqlCtx.createDataFrame(Movies,["movie","year","director","genre","imdb score", "#of nomination for 0scar"])
     
