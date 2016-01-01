@@ -1,7 +1,7 @@
 
 
      This repository contains my various Coursera Class assignments together with some variations and self-workout examples. 
-     You can find similar or the same example and assignments at following  websites and coursera classes.
+     You can find similar or the same examples and assignments at following  websites and coursera classes.
      
    - http://spark.apache.org
   
